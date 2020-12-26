@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+	//utils.TestUploadByFilename("main.go")
 	ignoreStaticPath()
 	beego.Run()
 	//beego.Run(":8088")
@@ -20,7 +21,6 @@ func main() {
 */
 func ignoreStaticPath() {
 	//透明static
-	//beego.SetStaticPath("group1/M00/","fdfs/storage_data/data/")
 	beego.InsertFilter("/", beego.BeforeRouter, TransparentStatic)
 	beego.InsertFilter("/*", beego.BeforeRouter, TransparentStatic)
 }
